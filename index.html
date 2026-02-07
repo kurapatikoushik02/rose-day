@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="bgmusic" src="music.mp3" loop></audio>
+
+<!-- SCREEN 1 -->
+<div id="screen1" class="screen active">
+    <h1 class="title">
+        Happy Rose Day <br>
+        <span>Ritika Nayak Princess</span>
+    </h1>
+
+    <button class="envelope-btn" onclick="openLetter()">
+        <p>Tap here Princess</p>
+    </button>
+</div>
+
+
+<!-- SCREEN 2 -->
+<div id="screen2" class="screen">
+
+    <div class="images">
+        <img id="pic1" src="pic1.jpg">
+        <img id="pic2" src="pic2.jpg">
+    </div>
+
+    <div id="message" class="message"></div>
+
+    <button id="roseBtn" class="rose-btn" onclick="openProposal()">
+        <p>Please tap here for next page princess</p>
+    </button>
+
+</div>
+
+
+<!-- SCREEN 3 -->
+<div id="screen3" class="screen proposal">
+
+    <h1 class="proposalText">
+        Will you stay with me forever Princess? ❤️
+    </h1>
+
+    <div class="buttons">
+        <button class="yes" onclick="yesClick()">YES 💍</button>
+        <button class="no" id="noBtn">NO 🙈</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* GLOBAL */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+height:100vh;
+overflow:hidden;
+color:white;
+background:radial-gradient(circle at top,#2b001f,#000000);
+}
+
+/* floating particles */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background-image:radial-gradient(rgba(255,192,203,0.3) 1px, transparent 1px);
+background-size:30px 30px;
+animation:stars 20s linear infinite;
+z-index:-1;
+}
+
+@keyframes stars{
+from{transform:translateY(0);}
+to{transform:translateY(200px);}
+}
+
+/* TITLE */
+.title{
+font-family:'Great Vibes',cursive;
+font-size:38px;
+color:#ffd700;
+text-shadow:0 0 10px gold,0 0 25px #ff9ed6;
+margin-top:120px;
+animation:fadeIn 2s ease;
+}
+
+.title span{
+font-size:42px;
+color:#ffb6e6;
+}
+
+/* ROSE BUTTON */
+.envelope-btn{
+position:relative;
+width:130px;
+height:130px;
+margin-top:60px;
+border:none;
+background:transparent;
+cursor:pointer;
+}
+
+/* Rose petals shape */
+.envelope-btn::before,
+.envelope-btn::after{
+content:"";
+position:absolute;
+width:70px;
+height:100px;
+background:linear-gradient(145deg,#ff2e7a,#ff7eb9);
+border-radius:70px 70px 0 70px;
+top:15px;
+left:30px;
+transform:rotate(-45deg);
+box-shadow:0 0 20px #ff4da6;
+}
+
+.envelope-btn::after{
+left:auto;
+right:30px;
+transform:rotate(45deg);
+border-radius:70px 70px 70px 0;
+}
+
+.envelope-btn p{
+position:absolute;
+bottom:-35px;
+width:100%;
+text-align:center;
+color:#ffd700;
+font-size:16px;
+}
+
+/* PHOTO SECTION */
+.images{
+display:flex;
+justify-content:space-between;
+padding:20px;
+margin-top:40px;
+}
+
+.images img{
+width:45%;
+border-radius:20px;
+opacity:0;
+transform:translateY(80px);
+transition:2s;
+box-shadow:0 0 25px rgba(255,105,180,0.7);
+}
+
+.show{
+opacity:1 !important;
+transform:translateY(0) !important;
+}
+
+/* MESSAGE */
+.message{
+margin-top:20px;
+padding:15px;
+font-size:18px;
+color:#ffd6f2;
+text-shadow:0 0 10px pink;
+min-height:80px;
+font-family:'Great Vibes',cursive;
+font-size:26px;
+}
+
+/* ROSE NEXT BUTTON */
+.rose-btn{
+display:none;
+margin-top:25px;
+width:100px;
+height:100px;
+border:none;
+background:transparent;
+position:relative;
+cursor:pointer;
+animation:pulse 2s infinite;
+}
+
+.rose-btn::before,
+.rose-btn::after{
+content:"";
+position:absolute;
+width:60px;
+height:85px;
+background:linear-gradient(145deg,#ff1e63,#ff6fa5);
+border-radius:60px 60px 0 60px;
+top:10px;
+left:20px;
+transform:rotate(-45deg);
+box-shadow:0 0 20px #ff4da6;
+}
+
+.rose-btn::after{
+left:auto;
+right:20px;
+transform:rotate(45deg);
+border-radius:60px 60px 60px 0;
+}
+
+.rose-btn p{
+position:absolute;
+bottom:-30px;
+width:100%;
+color:#ffd700;
+font-size:14px;
+}
+
+/* PROPOSAL PAGE */
+.proposal{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.proposalText{
+font-family:'Great Vibes',cursive;
+font-size:38px;
+color:#ffd700;
+text-shadow:0 0 20px pink;
+}
+
+.buttons button{
+margin:20px;
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:40px;
+}
+
+.yes{
+background:linear-gradient(45deg,#ff2e7a,#ff9ed6);
+box-shadow:0 0 20px pink;
+color:white;
+}
+
+.no{
+background:#333;
+color:white;
+}
+
+/* FINAL TEXT */
+.final{
+font-family:'Great Vibes',cursive;
+font-size:42px;
+color:#ffd700;
+text-shadow:0 0 25px pink;
+margin-top:40vh;
+}
+
+/* falling roses */
+.rose{
+position:fixed;
+top:-50px;
+font-size:24px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+opacity:0.8;
+}
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(-30px);}
+to{opacity:1;transform:translateY(0);}
+
+.screen{
+display:none;
+height:100vh;
+width:100%;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+position:absolute;
+top:0;
+left:0;
+background:radial-gradient(circle at top,#2b001f,#000000);
+}
+
+.screen.active{
+display:flex;
+z-index:5;
+}
+
+}
