@@ -10,10 +10,10 @@
 
 <body>
 
-<!-- MUSIC -->
-<audio id="bgmusic" src="music.mp3" loop></audio>
+<!-- BACKGROUND MUSIC -->
+<audio id="bgmusic" src="music.mp3" loop preload="auto"></audio>
 
-<!-- SCREEN 1 -->
+<!-- SCREEN 1 (INTRO) -->
 <div id="screen1" class="screen active">
     <h1 class="title">
         Happy Rose Day <br>
@@ -25,8 +25,7 @@
     </button>
 </div>
 
-
-<!-- SCREEN 2 -->
+<!-- SCREEN 2 (PHOTOS + MESSAGE) -->
 <div id="screen2" class="screen">
 
     <div class="images">
@@ -42,8 +41,7 @@
 
 </div>
 
-
-<!-- SCREEN 3 -->
+<!-- SCREEN 3 (PROPOSAL) -->
 <div id="screen3" class="screen proposal">
 
     <h1 class="proposalText">
@@ -54,6 +52,19 @@
         <button class="yes" onclick="yesClick()">YES 💍</button>
         <button class="no" id="noBtn">NO 🙈</button>
     </div>
+
+</div>
+
+<!-- SCREEN 4 (FINAL MESSAGE + IMAGE) -->
+<div id="screen4" class="screen proposal">
+
+    <div class="final-card">
+        <img id="finalPic" src="engagement.png">
+    </div>
+
+    <h1 id="finalText" class="final">
+        I Love You Forever Ritika ❤️
+    </h1>
 
 </div>
 

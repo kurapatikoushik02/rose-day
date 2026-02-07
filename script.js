@@ -1,7 +1,19 @@
+/* MUSIC */
 let music = document.getElementById("bgmusic");
 
+/* iPhone unlock */
+document.addEventListener("click", function(){
+    if(music.paused){
+        music.play().catch(()=>{});
+    }
+}, { once: true });
+
+/* OPEN LETTER */
 function openLetter(){
-    music.play();
+
+    music.muted=false;
+    music.volume=1;
+    music.play().catch(()=>{});
 
     document.getElementById("screen1").classList.remove("active");
     document.getElementById("screen2").classList.add("active");
@@ -9,17 +21,7 @@ function openLetter(){
     startAnimations();
 }
 
-function openProposal(){
-    document.getElementById("screen2").classList.remove("active");
-    document.getElementById("screen3").classList.add("active");
-
-    // reset button position properly
-    const noBtn=document.getElementById("noBtn");
-    noBtn.style.position="relative";
-}
-
-/* animations */
-
+/* ANIMATIONS */
 function startAnimations(){
 
 setTimeout(()=>{document.getElementById("pic1").classList.add("show");},1000);
@@ -40,12 +42,30 @@ setTimeout(typeWriter,2500);
 setTimeout(()=>{document.getElementById("roseBtn").style.display="block";},8000);
 }
 
-/* proposal */
-
-function yesClick(){
-document.body.innerHTML="<h1 class='final'>I Love You Forever Ritika ❤️</h1>";
+/* GO TO PROPOSAL */
+function openProposal(){
+document.getElementById("screen2").classList.remove("active");
+document.getElementById("screen3").classList.add("active");
 }
 
+/* YES CLICK */
+function yesClick(){
+
+document.getElementById("screen3").classList.remove("active");
+document.getElementById("screen4").classList.add("active");
+
+/* animate card */
+setTimeout(()=>{
+document.querySelector(".final-card").classList.add("showFinal");
+},300);
+
+/* animate text */
+setTimeout(()=>{
+document.getElementById("finalText").classList.add("showText");
+},1700);
+}
+
+/* NO button runs away */
 const noBtn=document.getElementById("noBtn");
 if(noBtn){
 noBtn.addEventListener("touchstart",()=>{

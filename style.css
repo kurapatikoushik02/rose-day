@@ -1,27 +1,30 @@
-/* GLOBAL */
+/* ===== RESET ===== */
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
+/* ===== BODY ===== */
 body{
 font-family:'Poppins',sans-serif;
-height:100vh;
-overflow:hidden;
+min-height:100vh;
+overflow-y:auto;
 color:white;
 background:radial-gradient(circle at top,#2b001f,#000000);
 }
 
-/* floating particles */
+/* soft star particles */
 body::before{
 content:"";
 position:fixed;
+top:0;
+left:0;
 width:100%;
 height:100%;
-background-image:radial-gradient(rgba(255,192,203,0.3) 1px, transparent 1px);
-background-size:30px 30px;
-animation:stars 20s linear infinite;
+background-image:radial-gradient(rgba(255,182,193,0.25) 1px, transparent 1px);
+background-size:28px 28px;
+animation:stars 25s linear infinite;
 z-index:-1;
 }
 
@@ -30,22 +33,38 @@ from{transform:translateY(0);}
 to{transform:translateY(200px);}
 }
 
-/* TITLE */
+/* ===== SCREENS ===== */
+.screen{
+display:none;
+width:100%;
+min-height:100vh;
+padding:40px 15px 120px;
+justify-content:flex-start;
+align-items:center;
+flex-direction:column;
+position:relative;
+}
+
+.screen.active{
+display:flex;
+}
+
+/* ===== TITLE ===== */
 .title{
 font-family:'Great Vibes',cursive;
 font-size:38px;
 color:#ffd700;
-text-shadow:0 0 10px gold,0 0 25px #ff9ed6;
-margin-top:120px;
-animation:fadeIn 2s ease;
+text-align:center;
+margin-top:80px;
+text-shadow:0 0 12px gold,0 0 30px #ff7ac3;
 }
 
 .title span{
 font-size:42px;
-color:#ffb6e6;
+color:#ffc1e8;
 }
 
-/* ROSE BUTTON */
+/* ===== ROSE BUTTON ===== */
 .envelope-btn{
 position:relative;
 width:130px;
@@ -56,7 +75,6 @@ background:transparent;
 cursor:pointer;
 }
 
-/* Rose petals shape */
 .envelope-btn::before,
 .envelope-btn::after{
 content:"";
@@ -68,7 +86,7 @@ border-radius:70px 70px 0 70px;
 top:15px;
 left:30px;
 transform:rotate(-45deg);
-box-shadow:0 0 20px #ff4da6;
+box-shadow:0 0 25px #ff4da6;
 }
 
 .envelope-btn::after{
@@ -87,17 +105,19 @@ color:#ffd700;
 font-size:16px;
 }
 
-/* PHOTO SECTION */
+/* ===== PHOTOS ===== */
 .images{
 display:flex;
 justify-content:space-between;
-padding:20px;
+gap:12px;
+width:100%;
 margin-top:40px;
+margin-bottom:20px;
 }
 
 .images img{
-width:45%;
-border-radius:20px;
+width:48%;
+border-radius:22px;
 opacity:0;
 transform:translateY(80px);
 transition:2s;
@@ -109,24 +129,25 @@ opacity:1 !important;
 transform:translateY(0) !important;
 }
 
-/* MESSAGE */
+/* ===== MESSAGE ===== */
 .message{
 margin-top:20px;
-padding:15px;
-font-size:18px;
+padding:20px;
+font-size:24px;
 color:#ffd6f2;
 text-shadow:0 0 10px pink;
-min-height:80px;
+min-height:100px;
 font-family:'Great Vibes',cursive;
-font-size:26px;
+line-height:1.6;
+text-align:center;
 }
 
-/* ROSE NEXT BUTTON */
+/* ===== NEXT ROSE BUTTON ===== */
 .rose-btn{
 display:none;
-margin-top:25px;
-width:100px;
-height:100px;
+margin-top:30px;
+width:110px;
+height:110px;
 border:none;
 background:transparent;
 position:relative;
@@ -144,8 +165,8 @@ background:linear-gradient(145deg,#ff1e63,#ff6fa5);
 border-radius:60px 60px 0 60px;
 top:10px;
 left:20px;
+box-shadow:0 0 25px #ff4da6;
 transform:rotate(-45deg);
-box-shadow:0 0 20px #ff4da6;
 }
 
 .rose-btn::after{
@@ -157,31 +178,30 @@ border-radius:60px 60px 60px 0;
 
 .rose-btn p{
 position:absolute;
-bottom:-30px;
+bottom:-35px;
 width:100%;
+text-align:center;
 color:#ffd700;
-font-size:14px;
+font-size:15px;
 }
 
-/* PROPOSAL PAGE */
+/* ===== PROPOSAL PAGE ===== */
 .proposal{
-display:flex;
-flex-direction:column;
 justify-content:center;
-align-items:center;
-height:100vh;
 }
 
 .proposalText{
 font-family:'Great Vibes',cursive;
 font-size:38px;
 color:#ffd700;
+text-align:center;
 text-shadow:0 0 20px pink;
+margin-bottom:30px;
 }
 
 .buttons button{
-margin:20px;
-padding:15px 30px;
+margin:18px;
+padding:14px 28px;
 font-size:18px;
 border:none;
 border-radius:40px;
@@ -189,7 +209,7 @@ border-radius:40px;
 
 .yes{
 background:linear-gradient(45deg,#ff2e7a,#ff9ed6);
-box-shadow:0 0 20px pink;
+box-shadow:0 0 25px pink;
 color:white;
 }
 
@@ -198,13 +218,55 @@ background:#333;
 color:white;
 }
 
-/* FINAL TEXT */
-.final{
+/* ===== FINAL IMAGE CARD ===== */
+
+.final-card{
+width:72%;
+max-width:240px;
+height:300px;
+border-radius:20px;
+overflow:hidden;
+margin-top:40px;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(6px);
+
+box-shadow:
+0 0 25px rgba(255,105,180,0.5),
+0 0 60px rgba(255,20,147,0.25);
+
+opacity:0;
+transform:translateY(-120px);
+transition:1.4s ease;
+}
+
+.final-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.showFinal{
+opacity:1 !important;
+transform:translateY(0) !important;
+}
+
+#finalText{
+opacity:0;
+transform:translateY(40px);
+transition:1.5s ease;
+margin-top:25px;
 font-family:'Great Vibes',cursive;
-font-size:42px;
+font-size:38px;
 color:#ffd700;
-text-shadow:0 0 25px pink;
-margin-top:40vh;
+text-align:center;
+text-shadow:0 0 20px pink;
+}
+
+.showText{
+opacity:1 !important;
+transform:translateY(0) !important;
 }
 
 /* falling roses */
@@ -213,12 +275,13 @@ position:fixed;
 top:-50px;
 font-size:24px;
 animation:fall linear forwards;
+pointer-events:none;
 }
 
 @keyframes fall{
 to{
 transform:translateY(110vh) rotate(360deg);
-opacity:0.8;
+opacity:0.85;
 }
 }
 
@@ -226,28 +289,4 @@ opacity:0.8;
 0%{transform:scale(1);}
 50%{transform:scale(1.15);}
 100%{transform:scale(1);}
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(-30px);}
-to{opacity:1;transform:translateY(0);}
-
-.screen{
-display:none;
-height:100vh;
-width:100%;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-position:absolute;
-top:0;
-left:0;
-background:radial-gradient(circle at top,#2b001f,#000000);
-}
-
-.screen.active{
-display:flex;
-z-index:5;
-}
-
 }
